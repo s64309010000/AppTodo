@@ -15,16 +15,16 @@
     <h3>
         <x-alert/>
     </h3>
-    @foreach($todo as $todo)
+    @foreach($todos as $todo)
         <li>
             @if($todo->completed)
                 <span>{{ $todo->title }}</span>
             @else
                 {{ $todo->title }}
             @endif
-            <a href="{{ asset('/'.@todo->id.'/edit') }}">แก้ไข</a>
-            <a href="{{ asset('/'.@todo->id.'/comleted') }}">สำเร็จ</a>
-            <a href="{{ asset('/'.@todo->id.'/delete') }}">ลบ</a>
+            <a href="{{ asset('/'.$todo->id.'/edit') }}">แก้ไข</a>
+            <a href="{{ asset('/'.$todo->id.'/comleted') }}">สำเร็จ</a>
+            <a href="{{ asset('/'.$todo->id.'/delete') }}">ลบ</a>
         </li>
     @endforeach
     

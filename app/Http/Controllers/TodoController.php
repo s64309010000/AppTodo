@@ -9,8 +9,8 @@ class TodoController extends Controller
 {
 
     public function index(){
-        $todo = Todo::orderBy('completed')->get();
-        return view('todo.index')->with(['todo' => $todo]);
+        $todos = Todo::orderBy('completed')->get();
+        return view('todo.index')->with(['todos' => $todos]);
     }
 
     public function create(){
