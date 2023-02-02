@@ -10,7 +10,7 @@ class TodoController extends Controller
 
     public function index(){
         $todo = Todo::orderBy('completed')->get();
-        return view('todo.index')->with(['todos' => $todos]);
+        return view('todo.index')->with(['todo' => $todo]);
     }
 
     public function create(){
@@ -19,9 +19,9 @@ class TodoController extends Controller
 
     public function upload(Request $request){
         $request->validate([
-            'title' => 'required|max255'
+            'title' => 'required|max:255'
         ]);
-        $todo = @request->title;
+        $todo = $request->title;
         Todo::create(['title' => $todo]);
         return redirect()->back()->with('success', "ส่งข้อมูลสำเร็จแล้ว");
     }
@@ -33,7 +33,7 @@ class TodoController extends Controller
 
     public function update(Request $request){
         $request->validate([
-            'title' => 'required|max255'
+            'title' => 'required|max:255'
         ]);
         $updateTodo = Todo::find($request->id);
         $updateTodo->update(['title' => $request->title]);

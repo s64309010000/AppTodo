@@ -15,7 +15,7 @@
     <h3>
         <x-alert/>
     </h3>
-    @foreach($todos as $todo)
+    @foreach($todo as $todo)
         <li>
             @if($todo->completed)
                 <span>{{ $todo->title }}</span>
